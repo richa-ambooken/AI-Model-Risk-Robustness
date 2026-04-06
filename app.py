@@ -5,10 +5,15 @@ import numpy as np
 import pandas as pd
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from flask import send_file
 
 app = Flask(__name__)
 CORS(app)
 
+
+@app.route("/")
+def home():
+    return send_file("index.html")
 # Load models and columns
 MODELS_PATH = 'all_models.pkl'
 COLUMNS_PATH = 'columns.json'
